@@ -1,0 +1,10 @@
+.ui {
+  background: red;
+  position: absolute;
+  z-index: 100;
+  height: 100px;
+  padding: 10px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
