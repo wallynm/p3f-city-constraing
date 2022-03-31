@@ -16,10 +16,10 @@ const Decorator = props => {
 };
 
 const Net = ({children}) => {
-  console.info('Redrawn')
+
 
   const networkComponent = useRef();
-  const mode = "RouteSim"
+  // const mode = "RouteSim"
 
   // const [mode, setMode] = useState("RouteSim");
   const [selectedLocations, setSelectedLocations] = useState(["지구"]);
@@ -54,29 +54,14 @@ const Net = ({children}) => {
   return (
     <Network
       options={networkOption}
-      scale={1}
-      position={{ x: 0, y: 0 }}
+      // scale={1}
+      // position={{ x: 0, y: 0 }}
       ref={networkComponent}
     >
       {children}
     </Network>
   )
 }
-
-const Vessel = () => {
-  return <Node
-    id={'test'}
-    key={'test'}
-    size={5 * 10}
-    x={0}
-    y={0}
-    label="Test"
-  />
-}
-
-const NetMemo = React.memo(Net, (prevProps, nextProps) => {
-  return true
-});
 
 const WorldRepresentation = () => {
   const cities = useSelector(citiesSelector.selectAll)
@@ -141,12 +126,13 @@ const WorldRepresentation = () => {
         const city = cities[i]
         const cityRoads = city.roadConnections
   
-  
         for(var r in cityRoads) {
           const connect = cityRoads[r];
-          connectionNodes.add(connect.split(':').sort().join(":"));
+          connectionNodes.add(`${city.id}:${connect}`);
         }
       }
+
+      console.info('connectionNodes', connectionNodes)
   
       connectionNodes.forEach((value) => {
         renderNodes.push(
@@ -184,18 +170,18 @@ const WorldRepresentation = () => {
   }
 
   return (
-    <NetMemo>
+    <Net>
       <Node
         id={'test'}
         key={'test'}
         size={5 * 10}
         x={0}
         y={0}
-        label={testName}
+        label={'testssasdad'}
       />
       {renderCityNodes()}
       {renderConnectionNodes()}
-    </NetMemo>
+    </Net>
   )
 }
 

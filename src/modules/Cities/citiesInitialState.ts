@@ -24,13 +24,13 @@ export const citiesInitial: CityState = {
     happiness: 1,
     taxes: 1,
     security: 1,
-    roadConnections: ['vessel:shersh']
+    roadConnections: ['shersh']
   },
   'tenesse': {
     id: 'tenesse',
     x: -600,
     y: 200,
-    name: 'Tenesse 222',
+    name: 'Tenesse',
     region: Region['tanor'],
     size: CitySize['small'],
     regent: 'string',
@@ -38,7 +38,7 @@ export const citiesInitial: CityState = {
     happiness: 1,
     taxes: 1,
     security: 1,
-    roadConnections: ['tenesse:vessel']
+    roadConnections: ['vessel', 'shersh']
   },
   'assel': {
     id: 'assel',
@@ -52,7 +52,7 @@ export const citiesInitial: CityState = {
     happiness: 1,
     taxes: 1,
     security: 1,
-    roadConnections: ['assel:vessel', 'assel:tenesse']
+    roadConnections: ['vessel', 'tenesse']
   },
   'shersh': {
     id: 'shersh',
@@ -66,6 +66,6 @@ export const citiesInitial: CityState = {
     happiness: 1,
     taxes: 1,
     security: 1,
-    roadConnections: ['shersh:assel']
+    roadConnections: ['assel']
   }
 }
